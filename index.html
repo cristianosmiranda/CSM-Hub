@@ -371,8 +371,6 @@
 
 
 
-    .platform-navigation ul,
-
     .section-navigation ul {
 
         list-style: none;
@@ -403,31 +401,27 @@
 
 
 
-    .platform-navigation ul {
+    .platform-navigation table {
 
-        display: flex;
+        width: 100%;
 
-        flex-direction: row;
-
-        justify-content: space-between;
-
-        gap: 24px;
-
-        align-items: center;
+        border-collapse: collapse;
 
     }
 
 
 
-    .platform-navigation li {
+    .platform-navigation td {
 
-        flex: 1 1 0;
+        width: 33.333%;
+
+        padding: 0;
 
     }
 
 
 
-    .platform-navigation li:first-child {
+    .platform-navigation td:first-child {
 
         text-align: left;
 
@@ -435,7 +429,7 @@
 
 
 
-    .platform-navigation li:nth-child(2) {
+    .platform-navigation td:nth-child(2) {
 
         text-align: center;
 
@@ -443,7 +437,7 @@
 
 
 
-    .platform-navigation li:last-child {
+    .platform-navigation td:last-child {
 
         text-align: right;
 
@@ -1065,37 +1059,11 @@
         }
 
 
-        .platform-navigation ul,
-
         .section-navigation ul {
 
             flex-direction: column;
 
             gap: 20px;
-
-        }
-
-
-
-        .platform-navigation ul {
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: stretch;
-
-        }
-
-
-
-        .platform-navigation li:first-child,
-
-        .platform-navigation li:nth-child(2),
-
-        .platform-navigation li:last-child {
-
-            text-align: left;
 
         }
 
@@ -1124,14 +1092,6 @@
         .section-navigation ul {
 
             align-items: flex-start;
-                margin-bottom: 30px;
-                text-align: center;
-                font-size: clamp(
-                    2.75rem,
-                    7vw,
-                    5rem
-                );
-                line-height: 1.05;
         }
 
 
@@ -1204,10 +1164,16 @@
         >
 
 
-            <ul class="platform-navigation">
+            <table class="platform-navigation">
 
 
-                <li>
+                <tbody>
+
+
+                <tr>
+
+
+                <td>
 
                     <a
                         href="./index.html"
@@ -1219,11 +1185,11 @@
 
                     </a>
 
-                </li>
+                </td>
 
 
 
-                <li>
+                <td>
 
                     <a href="store/index.html">
 
@@ -1231,11 +1197,11 @@
 
                     </a>
 
-                </li>
+                </td>
 
 
 
-                <li>
+                <td>
 
                     <a href="blog/index.html">
 
@@ -1243,10 +1209,16 @@
 
                     </a>
 
-                </li>
+                </td>
 
 
-            </ul>
+                </tr>
+
+
+                </tbody>
+
+
+            </table>
 
 
 
