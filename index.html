@@ -573,6 +573,48 @@
 
 
 
+    .hero-layout {
+
+        width: 100%;
+
+        margin-inline: auto;
+
+        border-collapse: collapse;
+
+    }
+
+
+
+    .hero-layout td {
+
+        width: 50%;
+
+        padding: 24px;
+
+        text-align: left;
+
+        vertical-align: middle;
+
+    }
+
+
+
+    .hero-layout td:first-child {
+
+        padding-left: 0;
+
+    }
+
+
+
+    .hero-layout td:last-child {
+
+        padding-right: 0;
+
+    }
+
+
+
     .hero-label {
 
         color: var(--color-secondary);
@@ -603,7 +645,7 @@
 
             );
 
-        text-align: center;
+        text-align: left;
 
         font-size: clamp(
             2.75rem,
@@ -634,6 +676,14 @@
         font-size: 1.2rem;
 
         margin-bottom: 35px;
+
+    }
+
+
+
+    .hero-layout .hero-description {
+
+        max-width: none;
 
     }
 
@@ -988,6 +1038,13 @@
     @media (max-width: 900px) {
 
 
+        .hero-layout td {
+
+            padding: 16px;
+
+        }
+
+
         .about-content {
 
             grid-template-columns:
@@ -1312,6 +1369,18 @@
         <div class="container hero-content">
 
 
+            <table class="hero-layout">
+
+
+                <tbody>
+
+
+                <tr>
+
+
+                <td>
+
+
             <p class="hero-label">
 
                 CSM-HUB DIGITAL ECOSYSTEM
@@ -1341,6 +1410,12 @@
                 </span>
 
             </h1>
+
+
+                </td>
+
+
+                <td>
 
 
 
@@ -1379,6 +1454,18 @@
 
 
             </div>
+
+
+                </td>
+
+
+                </tr>
+
+
+                </tbody>
+
+
+            </table>
 
 
         </div>
