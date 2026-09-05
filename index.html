@@ -361,6 +361,2025 @@
 
         min-height: 75px;
 
+        display: block;
+
+        padding-block: 18px;
+
+    }
+
+
+
+    .platform-navigation ul,
+
+    .section-navigation ul {
+
+        list-style: none;
+
+    }
+
+
+
+    .logo {
+
+        color: var(--color-primary);
+
+        font-size: 1.4rem;
+
+        font-weight: 800;
+
+        text-decoration: none;
+
+    }
+
+
+
+    .logo span {
+
+        color: var(--color-secondary);
+
+    }
+
+
+
+    .platform-navigation ul {
+
+        display: grid;
+
+        grid-template-columns: 1fr auto 1fr;
+
+        align-items: center;
+
+    }
+
+
+
+    .platform-navigation li:first-child {
+
+        justify-self: start;
+
+    }
+
+
+
+    .platform-navigation li:nth-child(2) {
+
+        justify-self: center;
+
+    }
+
+
+
+    .platform-navigation li:last-child {
+
+        justify-self: end;
+
+    }
+
+
+
+    .platform-navigation a,
+
+    .section-navigation a {
+
+        color: var(--color-text);
+
+        font-weight: 600;
+
+        text-decoration: none;
+
+    }
+
+
+
+    .platform-navigation a:hover,
+
+    .section-navigation a:hover,
+
+    .platform-navigation a.active {
+
+        color: var(--color-secondary);
+
+    }
+
+
+
+    .platform-navigation a {
+
+        font-size: 1.15rem;
+
+        font-weight: 800;
+
+    }
+
+
+
+    .section-navigation {
+
+        margin-top: 18px;
+
+        padding-top: 14px;
+
+        border-top: 1px solid var(--color-border);
+
+    }
+
+
+
+    .section-navigation ul {
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 24px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+
+    .section-navigation a {
+
+        font-size: 0.9rem;
+
+    }
+
+
+
+    .mobile-menu-button {
+
+        display: none;
+
+        border: none;
+
+        background: transparent;
+
+        font-size: 1.5rem;
+
+        cursor: pointer;
+
+    }
+
+
+
+    /* =================================================
+       HERO
+    ================================================= */
+
+    .hero {
+
+        min-height: 85vh;
+
+        display: flex;
+
+        align-items: center;
+
+        background:
+
+            linear-gradient(
+
+                135deg,
+
+                #ffffff 0%,
+
+                #f1f5f9 100%
+
+            );
+
+    }
+
+
+
+    .hero-content {
+
+        max-width: 850px;
+
+    }
+
+
+
+    .hero-label {
+
+        color: var(--color-secondary);
+
+        font-size: 0.85rem;
+
+        font-weight: 700;
+
+        letter-spacing: 0.15em;
+
+        margin-bottom: 25px;
+
+    }
+
+
+
+    .hero h1 {
+
+        font-size:
+
+            clamp(
+
+                3.5rem,
+
+                10vw,
+
+                7rem
+
+            );
+
+        margin-bottom: 30px;
+
+    }
+
+
+
+    .hero h1 span {
+
+        color: var(--color-secondary);
+
+    }
+
+
+
+    .hero-description {
+
+        max-width: 650px;
+
+        font-size: 1.2rem;
+
+        margin-bottom: 35px;
+
+    }
+
+
+
+    .hero-actions {
+
+        display: flex;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+
+    /* =================================================
+       ABOUT
+    ================================================= */
+
+    .about-content {
+
+        display: grid;
+
+        grid-template-columns:
+
+            1fr
+            1fr;
+
+        gap: 80px;
+
+    }
+
+
+
+    .about-text {
+
+        display: grid;
+
+        gap: 20px;
+
+    }
+
+
+
+    .about-image {
+
+        width: 100%;
+
+        max-width: 400px;
+
+        display: block;
+
+        margin-top: 25px;
+
+        border-radius: 15px;
+
+    }
+
+
+
+    .about-principles {
+
+        display: grid;
+
+        grid-template-columns:
+
+            1fr
+            1fr;
+
+        gap: 20px;
+
+    }
+
+
+
+    .principle {
+
+        padding: 25px;
+
+        border:
+
+            1px solid
+            var(--color-border);
+
+        border-radius: 10px;
+
+        background-color:
+            var(--color-white);
+
+    }
+
+
+
+    .principle h3 {
+
+        margin-bottom: 10px;
+
+    }
+
+
+
+    /* =================================================
+       ECOSYSTEM
+    ================================================= */
+
+    .ecosystem-grid {
+
+        display: grid;
+
+        grid-template-columns:
+
+            repeat(
+                3,
+                1fr
+            );
+
+        gap: 25px;
+
+    }
+
+
+
+    .ecosystem-card {
+
+        padding: 35px;
+
+        background-color:
+            var(--color-white);
+
+        border:
+
+            1px solid
+            var(--color-border);
+
+        border-radius: 12px;
+
+        transition:
+
+            transform 0.2s ease,
+
+            box-shadow 0.2s ease;
+
+    }
+
+
+
+    .ecosystem-card:hover {
+
+        transform:
+            translateY(-5px);
+
+        box-shadow:
+
+            0 15px 40px
+
+            rgba(
+                15,
+                23,
+                42,
+                0.08
+            );
+
+    }
+
+
+
+    .card-icon {
+
+        font-size: 2rem;
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    .ecosystem-card h3 {
+
+        font-size: 1.5rem;
+
+        margin-bottom: 15px;
+
+    }
+
+
+
+    .ecosystem-card p {
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    .ecosystem-card a {
+
+        color:
+            var(--color-secondary);
+
+        font-weight: 700;
+
+        text-decoration: none;
+
+    }
+
+
+
+    /* =================================================
+       PROJECTS
+    ================================================= */
+
+    .project-placeholder {
+
+        padding: 60px;
+
+        text-align: center;
+
+        border:
+
+            2px dashed
+            var(--color-border);
+
+        border-radius: 12px;
+
+    }
+
+
+
+    /* =================================================
+       CONTACT
+    ================================================= */
+
+    .contact-content {
+
+        max-width: 750px;
+
+    }
+
+
+
+    .contact-content h2 {
+
+        color: var(--color-white);
+
+    }
+
+
+
+    .contact-content p {
+
+        margin-bottom: 30px;
+
+    }
+
+
+
+    /* =================================================
+       FOOTER
+    ================================================= */
+
+    .site-footer {
+
+        padding: 50px 0;
+
+        background-color:
+            var(--color-primary);
+
+        color: var(--color-white);
+
+    }
+
+
+
+    .footer-container {
+
+        display: flex;
+
+        justify-content:
+            space-between;
+
+        align-items: center;
+
+        gap: 30px;
+
+    }
+
+
+
+    .footer-logo {
+
+        color: var(--color-white);
+
+        font-size: 1.4rem;
+
+        font-weight: 800;
+
+        text-decoration: none;
+
+    }
+
+
+
+    .footer-logo span {
+
+        color: var(--color-secondary);
+
+    }
+
+
+
+    .site-footer p {
+
+        color: #94a3b8;
+
+    }
+
+
+
+    .copyright {
+
+        text-align: right;
+
+    }
+
+
+
+    /* =================================================
+       ACCESSIBILITY
+    ================================================= */
+
+    a:focus-visible,
+
+    button:focus-visible {
+
+        outline:
+
+            3px solid
+            var(--color-accent);
+
+        outline-offset: 4px;
+
+    }
+
+
+
+    /* =================================================
+       RESPONSIVE DESIGN
+    ================================================= */
+
+    @media (max-width: 900px) {
+
+
+        .about-content {
+
+            grid-template-columns:
+                1fr;
+
+            gap: 50px;
+
+        }
+
+
+        .ecosystem-grid {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+    }
+
+
+
+    @media (max-width: 700px) {
+
+
+        .section {
+
+            padding:
+                75px 0;
+
+        }
+
+
+        .mobile-menu-button {
+
+            display: block;
+
+        }
+
+
+        .main-navigation {
+
+            display: none;
+
+            position: absolute;
+
+            top: 100%;
+
+            left: 0;
+
+            width: 100%;
+
+            padding: 25px;
+
+            background-color:
+                var(--color-white);
+
+            border-bottom:
+
+                1px solid
+                var(--color-border);
+
+        }
+
+
+        .main-navigation.active {
+
+            display: block;
+
+        }
+
+
+        .platform-navigation ul,
+
+        .section-navigation ul {
+
+            flex-direction: column;
+
+            gap: 20px;
+
+        }
+
+
+
+        .platform-navigation ul {
+
+            display: flex;
+
+            align-items: stretch;
+
+        }
+
+
+
+        .platform-navigation li:first-child,
+
+        .platform-navigation li:nth-child(2),
+
+        .platform-navigation li:last-child {
+
+            justify-self: auto;
+
+        }
+
+
+
+        .section-navigation {
+
+            margin-top: 20px;
+
+            padding-top: 20px;
+
+        }
+
+
+
+        .section-navigation ul {
+
+            align-items: flex-start;
+
+        }
+
+
+        .about-principles {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+
+        .footer-container {
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+        }
+
+
+        .copyright {
+
+            text-align: left;
+
+        }
+
+    }
+
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="site-header">
+
+
+    <div class="container header-container">
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open platform and page navigation menu"
+            aria-expanded="false"
+            aria-controls="mainNavigation"
+        >
+
+            ☰
+
+        </button>
+
+
+
+        <!-- MAIN NAVIGATION -->
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+            aria-label="Primary platform navigation"
+        >
+
+
+            <ul class="platform-navigation">
+
+
+                <li>
+
+                    <a
+                        href="./index.html"
+                        class="active"
+                        aria-current="page"
+                    >
+
+                        CSM-Hub
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="store/index.html">
+
+                        CSM-Store
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="blog/index.html">
+
+                        CSM-Blog
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+
+
+            <div class="section-navigation">
+
+
+                <ul>
+
+
+                <li>
+
+                    <a href="#about">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#ecosystem">
+
+                        Ecosystem
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#projects">
+
+                        Projects
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+        </nav>
+
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main>
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+
+        <div class="container hero-content">
+
+
+            <p class="hero-label">
+
+                CSM-HUB DIGITAL ECOSYSTEM
+
+            </p>
+
+
+
+            <h1>
+
+                Learn.
+
+                <br>
+
+                Build.
+
+                <br>
+
+                Create.
+
+                <br>
+
+                <span>
+
+                    Evolve.
+
+                </span>
+
+            </h1>
+
+
+
+            <p class="hero-description">
+
+                A digital space focused on technology,
+                creativity, business, learning,
+                and continuous evolution.
+
+            </p>
+
+
+
+            <div class="hero-actions">
+
+
+                <a
+                    href="#ecosystem"
+                    class="button button-primary"
+                >
+
+                    Explore CSM-Hub
+
+                </a>
+
+
+
+                <a
+                    href="#about"
+                    class="button button-secondary"
+                >
+
+                    Our Journey
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         ABOUT
+    ================================================== -->
+
+    <section
+        class="section"
+        id="about"
+    >
+
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+
+                <p class="section-label">
+
+                    THE BEGINNING
+
+                </p>
+
+
+
+                <h2>
+
+                    Every project starts
+                    with a foundation.
+
+                </h2>
+
+
+            </div>
+
+
+
+            <div class="about-content">
+
+
+                <!-- TEXT -->
+
+                <div class="about-text">
+
+
+                    <p>
+
+                        In 2024, this journey began with a
+                        simple idea: learn again, create
+                        something new, and build from
+                        the foundations.
+
+                    </p>
+
+
+
+                    <p>
+
+                        What started as a personal website
+                        and a Web Development Sandbox
+                        is now evolving into CSM-Hub.
+
+                    </p>
+
+
+
+                    <p>
+
+                        The goal is simple: continue learning,
+                        experimenting, building, and turning
+                        ideas into real projects.
+
+                    </p>
+
+
+
+                    <!-- IMAGE -->
+
+                    <img
+                        src="//localhost/csm-hub/images/Main-Logo-CSM-Exp.JPG"
+                        alt="CSM Experience Logo"
+                        title="CSM Experience - Enjoy Your Freedom"
+                        class="about-image"
+                        loading="lazy"
+                    >
+
+
+                </div>
+
+
+
+                <!-- PRINCIPLES -->
+
+                <div class="about-principles">
+
+
+                    <article class="principle">
+
+
+                        <h3>
+
+                            Learn
+
+                        </h3>
+
+
+                        <p>
+
+                            Never stop developing
+                            new skills.
+
+                        </p>
+
+
+                    </article>
+
+
+
+                    <article class="principle">
+
+
+                        <h3>
+
+                            Build
+
+                        </h3>
+
+
+                        <p>
+
+                            Transform ideas into
+                            real projects.
+
+                        </p>
+
+
+                    </article>
+
+
+
+                    <article class="principle">
+
+
+                        <h3>
+
+                            Create
+
+                        </h3>
+
+
+                        <p>
+
+                            Explore technology
+                            and creativity.
+
+                        </p>
+
+
+                    </article>
+
+
+
+                    <article class="principle">
+
+
+                        <h3>
+
+                            Evolve
+
+                        </h3>
+
+
+                        <p>
+
+                            Continuously improve
+                            and adapt.
+
+                        </p>
+
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CSM ECOSYSTEM
+    ================================================== -->
+
+    <section
+        class="section section-light"
+        id="ecosystem"
+    >
+
+
+        <div class="container">
+
+
+            <div class="section-heading center">
+
+
+                <p class="section-label">
+
+                    THE PLATFORM
+
+                </p>
+
+
+
+                <h2>
+
+                    The CSM Ecosystem
+
+                </h2>
+
+
+
+                <p>
+
+                    One platform.
+                    Multiple experiences.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="ecosystem-grid">
+
+
+
+                <!-- =====================================
+                     CSM-HUB
+                ====================================== -->
+
+                <article class="ecosystem-card">
+
+
+                    <div class="card-icon">
+
+                        ◆
+
+                    </div>
+
+
+
+                    <h3>
+
+                        CSM-Hub
+
+                    </h3>
+
+
+
+                    <p>
+
+                        The central platform connecting
+                        technology, projects, ideas,
+                        services, and people.
+
+                    </p>
+
+
+
+                    <a href="#home">
+
+                        Explore →
+
+                    </a>
+
+
+                </article>
+
+
+
+                <!-- =====================================
+                     CSM-STORE
+                ====================================== -->
+
+                <article class="ecosystem-card">
+
+
+                    <div class="card-icon">
+
+                        🛒
+
+                    </div>
+
+
+
+                    <h3>
+
+                        CSM-Store
+
+                    </h3>
+
+
+
+                    <p>
+
+                        A future e-commerce platform
+                        designed to manage products,
+                        customers, and digital commerce.
+
+                    </p>
+
+
+
+                    <a href="#">
+
+                        Coming Soon →
+
+                    </a>
+
+
+                </article>
+
+
+
+                <!-- =====================================
+                     CSM-BLOG
+                ====================================== -->
+
+                <article class="ecosystem-card">
+
+
+                    <div class="card-icon">
+
+                        ✦
+
+                    </div>
+
+
+
+                    <h3>
+
+                        CSM-Blog
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Articles, ideas, experiences,
+                        technology, business, and
+                        continuous learning.
+
+                    </p>
+
+
+
+                    <a href="#">
+
+                        Coming Soon →
+
+                    </a>
+
+
+                </article>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         PROJECTS
+    ================================================== -->
+
+    <section
+        class="section"
+        id="projects"
+    >
+
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+
+                <p class="section-label">
+
+                    WORK IN PROGRESS
+
+                </p>
+
+
+
+                <h2>
+
+                    Building the Future
+
+                </h2>
+
+
+
+                <p>
+
+                    CSM-Hub is a growing project.
+
+                    New ideas and projects will
+                    continue to be developed here.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="project-placeholder">
+
+
+                <h3>
+
+                    More projects are coming.
+
+                </h3>
+
+
+
+                <p>
+
+                    This space will eventually showcase
+                    applications, experiments,
+                    technology projects,
+                    and future CSM initiatives.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================== -->
+
+    <section
+        class="section section-dark"
+        id="contact"
+    >
+
+
+        <div class="container contact-content">
+
+
+            <p class="section-label">
+
+                GET IN TOUCH
+
+            </p>
+
+
+
+            <h2>
+
+                Let's connect.
+
+            </h2>
+
+
+
+            <p>
+
+                Have an idea,
+                question,
+                or opportunity?
+
+            </p>
+
+
+
+            <a
+                href="mailto:csmexperience@gmail.com"
+                class="button button-primary"
+            >
+
+                Contact CSM-Hub
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+
+    <div class="container footer-container">
+
+
+        <div>
+
+
+            <a
+                href="#home"
+                class="footer-logo"
+            >
+
+                CSM<span>-Hub</span>
+
+            </a>
+
+
+
+            <p>
+
+                Learn.
+                Build.
+                Create.
+                Evolve.
+
+            </p>
+
+
+        </div>
+
+
+
+        <p class="copyright">
+
+            © 2024–2026 CSM-Hub.
+
+            All rights reserved.
+
+        </p>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+    "use strict";
+
+
+    /* ================================================
+       MOBILE NAVIGATION
+    ================================================= */
+
+
+    var mobileMenuButton =
+        document.getElementById(
+            "mobileMenuButton"
+        );
+
+
+    var mainNavigation =
+        document.getElementById(
+            "mainNavigation"
+        );
+
+
+    if (
+
+        mobileMenuButton &&
+        mainNavigation &&
+        !mainNavigation.dataset.navigationInitialized
+
+    ) {
+
+
+        mobileMenuButton.addEventListener(
+
+            "click",
+
+            function () {
+
+
+                const isOpen =
+
+                    mainNavigation.classList.toggle(
+                        "active"
+                    );
+
+
+                mobileMenuButton.setAttribute(
+
+                    "aria-expanded",
+
+                    String(isOpen)
+
+                );
+
+
+            }
+
+        );
+
+
+        mainNavigation.dataset.navigationInitialized =
+            "true";
+
+
+    }
+
+
+</script>
+```
+
+</body>
+
+</html>
+<template hidden>
+<html lang="en-US">
+
+<head>
+
+```
+<!-- =====================================================
+     BASIC CONFIGURATION
+====================================================== -->
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="CSM-Hub is a digital ecosystem focused on technology, creativity, learning, business, and continuous evolution."
+>
+
+<meta
+    name="author"
+    content="Cristiano S. M."
+>
+
+<meta
+    name="robots"
+    content="index, follow"
+>
+
+
+<title>
+    CSM-Hub | Learn. Build. Create. Evolve.
+</title>
+
+
+<!-- =====================================================
+     FAVICON
+====================================================== -->
+
+<link
+    rel="icon"
+    type="image/jpeg"
+    href="//localhost/csm-hub/images/Main-Logo-CSM-Exp.JPG"
+>
+
+
+<!-- =====================================================
+     CSS
+====================================================== -->
+
+<style>
+
+
+    /* =================================================
+       ROOT VARIABLES
+    ================================================= */
+
+    :root {
+
+        --color-primary: #0f172a;
+
+        --color-secondary: #2563eb;
+
+        --color-accent: #06b6d4;
+
+        --color-white: #ffffff;
+
+        --color-light: #f8fafc;
+
+        --color-border: #e2e8f0;
+
+        --color-text: #0f172a;
+
+        --color-text-secondary: #475569;
+
+        --color-dark: #020617;
+
+
+        --font-primary:
+
+            Arial,
+            Helvetica,
+            sans-serif;
+
+
+        --container-width: 1200px;
+
+    }
+
+
+
+    /* =================================================
+       BASIC RESET
+    ================================================= */
+
+    * {
+
+        margin: 0;
+
+        padding: 0;
+
+        box-sizing: border-box;
+
+    }
+
+
+
+    html {
+
+        scroll-behavior: smooth;
+
+    }
+
+
+
+    body {
+
+        font-family: var(--font-primary);
+
+        background-color: var(--color-white);
+
+        color: var(--color-text);
+
+        line-height: 1.6;
+
+    }
+
+
+
+    /* =================================================
+       GLOBAL
+    ================================================= */
+
+    .container {
+
+        width: min(
+            90%,
+            var(--container-width)
+        );
+
+        margin-inline: auto;
+
+    }
+
+
+
+    .section {
+
+        padding: 100px 0;
+
+    }
+
+
+
+    .section-light {
+
+        background-color: var(--color-light);
+
+    }
+
+
+
+    .section-dark {
+
+        background-color: var(--color-dark);
+
+        color: var(--color-white);
+
+    }
+
+
+
+    .section-heading {
+
+        max-width: 750px;
+
+        margin-bottom: 60px;
+
+    }
+
+
+
+    .section-heading.center {
+
+        text-align: center;
+
+        margin-inline: auto;
+
+        margin-bottom: 60px;
+
+    }
+
+
+
+    .section-label {
+
+        color: var(--color-secondary);
+
+        font-size: 0.8rem;
+
+        font-weight: 700;
+
+        letter-spacing: 0.15em;
+
+        margin-bottom: 15px;
+
+    }
+
+
+
+    h1,
+    h2,
+    h3 {
+
+        line-height: 1.2;
+
+    }
+
+
+
+    h2 {
+
+        font-size: clamp(
+            2rem,
+            5vw,
+            3.5rem
+        );
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    p {
+
+        color: var(--color-text-secondary);
+
+    }
+
+
+
+    .section-dark p {
+
+        color: #cbd5e1;
+
+    }
+
+
+
+    /* =================================================
+       BUTTONS
+    ================================================= */
+
+    .button {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 14px 24px;
+
+        border-radius: 8px;
+
+        text-decoration: none;
+
+        font-weight: 700;
+
+        transition:
+
+            transform 0.2s ease,
+
+            background-color 0.2s ease;
+
+    }
+
+
+
+    .button:hover {
+
+        transform: translateY(-2px);
+
+    }
+
+
+
+    .button-primary {
+
+        background-color: var(--color-secondary);
+
+        color: var(--color-white);
+
+    }
+
+
+
+    .button-primary:hover {
+
+        background-color: #1d4ed8;
+
+    }
+
+
+
+    .button-secondary {
+
+        border:
+
+            1px solid
+            var(--color-border);
+
+        color: var(--color-text);
+
+        background-color: var(--color-white);
+
+    }
+
+
+
+    /* =================================================
+       HEADER
+    ================================================= */
+
+    .site-header {
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+
+        background-color:
+
+            rgba(
+                255,
+                255,
+                255,
+                0.95
+            );
+
+        border-bottom:
+
+            1px solid
+            var(--color-border);
+
+        backdrop-filter:
+
+            blur(10px);
+
+    }
+
+
+
+    .header-container {
+
+        min-height: 75px;
+
         display: flex;
 
         align-items: center;
@@ -1859,3 +3878,4 @@
 </body>
 
 </html>
+</template>
