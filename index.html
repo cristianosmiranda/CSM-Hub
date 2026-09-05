@@ -359,11 +359,11 @@
 
     .header-container {
 
-        min-height: 75px;
+        min-height: 56px;
 
         display: block;
 
-        padding-block: 18px;
+        padding-block: 8px;
 
     }
 
@@ -405,7 +405,7 @@
 
         display: grid;
 
-        grid-template-columns: 1fr auto 1fr;
+        grid-template-columns: repeat(3, 1fr);
 
         align-items: center;
 
@@ -415,7 +415,7 @@
 
     .platform-navigation li:first-child {
 
-        justify-self: start;
+        text-align: left;
 
     }
 
@@ -423,7 +423,7 @@
 
     .platform-navigation li:nth-child(2) {
 
-        justify-self: center;
+        text-align: left;
 
     }
 
@@ -431,7 +431,7 @@
 
     .platform-navigation li:last-child {
 
-        justify-self: end;
+        text-align: left;
 
     }
 
@@ -465,9 +465,15 @@
 
     .platform-navigation a {
 
-        font-size: 1.15rem;
+        display: block;
+
+        padding: 7px 12px;
+
+        font-size: 1rem;
 
         font-weight: 800;
+
+        white-space: nowrap;
 
     }
 
@@ -475,9 +481,9 @@
 
     .section-navigation {
 
-        margin-top: 18px;
+        margin-top: 4px;
 
-        padding-top: 14px;
+        padding-top: 4px;
 
         border-top: 1px solid var(--color-border);
 
@@ -491,7 +497,7 @@
 
         justify-content: center;
 
-        gap: 24px;
+        gap: 18px;
 
         flex-wrap: wrap;
 
@@ -501,7 +507,7 @@
 
     .section-navigation a {
 
-        font-size: 0.9rem;
+        font-size: 0.8rem;
 
     }
 
@@ -1015,7 +1021,7 @@
 
             width: 100%;
 
-            padding: 25px;
+            padding: 18px;
 
             background-color:
                 var(--color-white);
@@ -1063,7 +1069,17 @@
 
         .platform-navigation li:last-child {
 
-            justify-self: auto;
+            text-align: left;
+
+        }
+
+
+
+        .platform-navigation a {
+
+            padding: 0;
+
+            white-space: normal;
 
         }
 
