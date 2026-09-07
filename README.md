@@ -14,7 +14,7 @@ CSM-Hub is the main corporate and platform experience. It establishes the perman
 - **CSM-Store** - the planned e-commerce application.
 - **CSM-Blog** - the planned company, ideas, and content application.
 
-The Store and Blog paths currently contain honest placeholders rather than simulated functionality. Their entry points are `store/index.html` and `blog/index.html`.
+The Store and Blog paths currently contain honest placeholders rather than simulated functionality. Their public routes are `store/` and `blog/`; Apache serves each module's `index.html` through its directory URL.
 
 ## Current Implementation
 

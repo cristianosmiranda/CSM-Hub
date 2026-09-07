@@ -101,8 +101,8 @@ The homepage can be opened directly as a local file in a browser. This is useful
 The platform navigation currently uses these relative destinations:
 
 - `./index.html` - always returns to the CSM-Hub homepage.
-- `store/index.html` - current CSM-Store module placeholder.
-- `blog/index.html` - current CSM-Blog module placeholder.
+- `store/` - current CSM-Store module route; Apache serves its `index.html`.
+- `blog/` - current CSM-Blog module route; Apache serves its `index.html`.
 
 The Store and Blog pages are architectural placeholders only. They do not provide e-commerce or publishing functionality yet. Their next implementation phase should replace the placeholder while preserving these paths.
 
@@ -201,7 +201,7 @@ For a production project, use version control as the primary history and treat t
 
 The next planned modules are:
 
-1. CSM-Store at `store/index.html` or a future Store application rooted at `store/`.
-2. CSM-Blog at `blog/index.html` or a future Blog application rooted at `blog/`.
+1. CSM-Store at `store/` or a future Store application rooted at `store/`.
+2. CSM-Blog at `blog/` or a future Blog application rooted at `blog/`.
 
 Neither module should be considered complete until its placeholder is replaced with its own documented application and its platform navigation marks the current platform as active.
