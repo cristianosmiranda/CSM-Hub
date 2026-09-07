@@ -367,6 +367,66 @@
 
         padding-block: 8px;
 
+        position: relative;
+
+    }
+
+
+
+    .language-switcher {
+
+        display: flex;
+
+        position: absolute;
+
+        top: 6px;
+
+        right: 0;
+
+        z-index: 2;
+
+        align-items: center;
+
+        gap: 4px;
+
+        font-size: 0.72rem;
+
+    }
+
+
+
+    .language-switcher button {
+
+        border: 0;
+
+        padding: 2px 4px;
+
+        background: transparent;
+
+        color: var(--color-text-secondary);
+
+        cursor: pointer;
+
+        font: inherit;
+
+    }
+
+
+
+    .language-switcher button:hover,
+
+    .language-switcher button.active {
+
+        color: var(--color-secondary);
+
+    }
+
+
+
+    .language-switcher .separator {
+
+        color: var(--color-border);
+
     }
 
 
@@ -406,6 +466,8 @@
         width: 100%;
 
         border-collapse: collapse;
+
+        padding-top: 14px;
 
     }
 
@@ -1136,6 +1198,14 @@
 
 
 
+        .language-switcher {
+
+            right: 18px;
+
+        }
+
+
+
         .section-navigation {
 
             margin-top: 20px;
@@ -1194,6 +1264,35 @@
 
 
     <div class="container header-container">
+
+
+        <div
+            class="language-switcher"
+            aria-label="Language selector"
+        >
+
+            <button
+                type="button"
+                class="active"
+                data-language="en"
+                aria-label="Translate to English"
+            >
+                🇺🇸 EN
+            </button>
+
+            <span class="separator" aria-hidden="true">|</span>
+
+            <button
+                type="button"
+                data-language="pt"
+                aria-label="Traduzir para Português"
+            >
+                🇧🇷 PT
+            </button>
+
+            <div id="google_translate_element" hidden></div>
+
+        </div>
 
 
         <!-- MOBILE MENU BUTTON -->
@@ -2121,6 +2220,64 @@
 
 
 </script>
+
+
+<script>
+
+    function googleTranslateElementInit() {
+
+        new google.translate.TranslateElement(
+
+            {
+                pageLanguage: "en",
+                includedLanguages: "en,pt",
+                autoDisplay: false
+            },
+
+            "google_translate_element"
+
+        );
+
+    }
+
+
+
+    document.querySelectorAll("[data-language]").forEach(
+
+        function (button) {
+
+            button.addEventListener("click", function () {
+
+                var select = document.querySelector(".goog-te-combo");
+
+                if (select) {
+
+                    select.value = button.dataset.language;
+
+                    select.dispatchEvent(new Event("change"));
+
+                }
+
+                document.querySelectorAll("[data-language]").forEach(
+
+                    function (item) {
+
+                        item.classList.toggle("active", item === button);
+
+                    }
+
+                );
+
+            });
+
+        }
+
+    );
+
+</script>
+
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 ```
 
 </body>

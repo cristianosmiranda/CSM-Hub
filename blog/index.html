@@ -4,12 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSM-Blog | CSM-Hub</title>
+    <style>
+        body { margin: 0; color: #0f172a; font-family: Arial, Helvetica, sans-serif; }
+        header { position: sticky; top: 0; z-index: 1; border-bottom: 1px solid #e2e8f0; background: rgba(255,255,255,.95); }
+        .header-container { position: relative; width: min(90%, 1200px); margin: auto; padding: 22px 0 8px; }
+        .language-switcher { position: absolute; top: 4px; right: 0; display: flex; gap: 4px; font-size: .72rem; }
+        .language-switcher button { border: 0; padding: 2px 4px; background: transparent; color: #475569; cursor: pointer; font: inherit; }
+        .language-switcher button.active, .language-switcher button:hover { color: #2563eb; }
+        nav table { width: 100%; border-collapse: collapse; }
+        nav td { width: 33.333%; }
+        nav td:first-child { text-align: left; } nav td:nth-child(2) { text-align: center; } nav td:last-child { text-align: right; }
+        nav a { color: #0f172a; font-weight: 800; text-decoration: none; }
+        main { width: min(90%, 1200px); margin: 72px auto; }
+        @media (max-width: 700px) { .language-switcher { right: 18px; } }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <div class="language-switcher" aria-label="Language selector">
+                <button type="button" class="active" data-language="en" aria-label="Translate to English">🇺🇸 EN</button>
+                <span aria-hidden="true">|</span>
+                <button type="button" data-language="pt" aria-label="Traduzir para Português">🇧🇷 PT</button>
+                <div id="google_translate_element" hidden></div>
+            </div>
+            <nav aria-label="Primary platform navigation">
+                <table><tbody><tr>
+                    <td><a href="../index.html">CSM-Hub</a></td>
+                    <td><a href="../store/">CSM-Store</a></td>
+                    <td><a href="./">CSM-Blog</a></td>
+                </tr></tbody></table>
+            </nav>
+        </div>
+    </header>
     <main>
         <h1>CSM-Blog</h1>
         <p>The CSM-Blog application is the next platform module to be developed.</p>
         <a href="../index.html">Return to CSM-Hub</a>
     </main>
+    <script>
+        function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: "en", includedLanguages: "en,pt", autoDisplay: false }, "google_translate_element"); }
+        document.querySelectorAll("[data-language]").forEach(function (button) { button.addEventListener("click", function () { var select = document.querySelector(".goog-te-combo"); if (select) { select.value = button.dataset.language; select.dispatchEvent(new Event("change")); } document.querySelectorAll("[data-language]").forEach(function (item) { item.classList.toggle("active", item === button); }); }); });
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
