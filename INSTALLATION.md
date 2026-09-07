@@ -31,6 +31,9 @@ Not required:
 ```text
 CSM-Hub/
 |-- index.html                 Main CSM-Hub homepage.
+|-- .htaccess                  Apache routing and 404 fallback configuration.
+|-- apache/
+|   `-- csm-hub.conf           Apache virtual directory configuration snippet.
 |-- httpd-erro-padrao.html    Maintenance and Apache httpd review page.
 |-- INSTALLATION.md            This installation and technical guide.
 |-- README.md                  Project overview and change summary.
@@ -58,6 +61,8 @@ The `backup/` directory is intentionally excluded from its own snapshot to preve
 5. Open the homepage at the server URL.
 
 The project should be served from the `CSM-Hub` directory itself. Do not place it behind a URL prefix unless the image paths in `index.html` are updated accordingly.
+
+Apache must allow overrides for this directory so that `.htaccess` can apply. The relevant virtual host or directory configuration should allow `AllowOverride FileInfo Indexes` (or `AllowOverride All`). On Fedora installations using `AllowOverride None`, install the provided `apache/csm-hub.conf` snippet instead.
 
 ## 5. Run with Python
 
@@ -98,6 +103,19 @@ A static server is preferred over opening the file directly because it more accu
 `httpd-erro-padrao.html` is a standalone fallback page for situations where the Apache httpd server responds but the expected CSM-Hub application is unavailable or the configuration requires review. It preserves the CSM-Hub platform navigation and uses relative links, so it can be placed inside the CSM-Hub document root without hard-coded hostnames.
 
 The page specifically directs administrators to review the virtual host, document root, `DirectoryIndex`, and `/etc/httpd/conf.d/welcome.conf`. It is not a replacement for Apache error handling or a substitute for fixing the underlying configuration.
+
+The root `.htaccess` configures `ErrorDocument 404 /csm-hub/httpd-erro-padrao.html`. Therefore, missing files and routes below `/csm-hub/`, including missing Store or Blog routes, use the CSM-Hub maintenance page. The `/csm-hub/` URL prefix must match the Apache `Alias`, virtual host, or document-root mapping; update the `ErrorDocument` path if the platform is deployed under another prefix.
+
+For the Fedora Apache setup described above:
+
+```bash
+sudo cp apache/csm-hub.conf /etc/httpd/conf.d/csm-hub.conf
+sudo apachectl configtest
+sudo systemctl reload httpd
+curl -i http://localhost/csm-hub/route-that-does-not-exist
+```
+
+The final command should return HTTP `404` and the CSM-Hub maintenance page body. The status remains `404`, which is important for crawlers and clients even though the branded fallback page is displayed.
 
 ## 7. Direct File Opening
 

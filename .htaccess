@@ -1,0 +1,6 @@
+# CSM-Hub Apache configuration
+DirectoryIndex index.html
+Options -Indexes
+
+# Use the CSM-Hub maintenance page for missing routes and files.
+ErrorDocument 404 /csm-hub/httpd-erro-padrao.html

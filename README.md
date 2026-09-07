@@ -18,6 +18,10 @@ The Store and Blog paths currently contain honest placeholders rather than simul
 
 The `httpd-erro-padrao.html` page is the CSM-Hub-styled maintenance and Apache configuration review page. It can be used as a controlled fallback while the server, virtual host, document root, or application deployment is being reviewed.
 
+Apache missing routes under `/csm-hub/` are routed to this page through the root `.htaccess` `ErrorDocument 404` configuration.
+
+Fedora Apache installations with `AllowOverride None` can use [apache/csm-hub.conf](apache/csm-hub.conf) as the `/etc/httpd/conf.d/` configuration snippet.
+
 ## Current Implementation
 
 This is a dependency-free static website built with:
