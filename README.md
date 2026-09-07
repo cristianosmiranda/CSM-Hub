@@ -16,6 +16,8 @@ CSM-Hub is the main corporate and platform experience. It establishes the perman
 
 The Store and Blog paths currently contain honest placeholders rather than simulated functionality. Their public routes are `store/` and `blog/`; Apache serves each module's `index.html` through its directory URL.
 
+The `httpd-erro-padrao.html` page is the CSM-Hub-styled maintenance and Apache configuration review page. It can be used as a controlled fallback while the server, virtual host, document root, or application deployment is being reviewed.
+
 ## Current Implementation
 
 This is a dependency-free static website built with:

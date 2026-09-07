@@ -31,6 +31,7 @@ Not required:
 ```text
 CSM-Hub/
 |-- index.html                 Main CSM-Hub homepage.
+|-- httpd-erro-padrao.html    Maintenance and Apache httpd review page.
 |-- INSTALLATION.md            This installation and technical guide.
 |-- README.md                  Project overview and change summary.
 |-- LICENSE                    Repository license.
@@ -91,6 +92,12 @@ Then open `http://localhost:8080/index.html`.
 5. Verify that the browser URL serves the whole `CSM-Hub` directory.
 
 A static server is preferred over opening the file directly because it more accurately reproduces deployed relative-link behavior.
+
+## 7.1 HTTPD Maintenance Page
+
+`httpd-erro-padrao.html` is a standalone fallback page for situations where the Apache httpd server responds but the expected CSM-Hub application is unavailable or the configuration requires review. It preserves the CSM-Hub platform navigation and uses relative links, so it can be placed inside the CSM-Hub document root without hard-coded hostnames.
+
+The page specifically directs administrators to review the virtual host, document root, `DirectoryIndex`, and `/etc/httpd/conf.d/welcome.conf`. It is not a replacement for Apache error handling or a substitute for fixing the underlying configuration.
 
 ## 7. Direct File Opening
 
