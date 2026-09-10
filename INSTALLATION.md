@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-CSM-Hub is the main corporate and platform website for the CSM digital ecosystem. The current implementation is a dependency-free static website. It uses HTML, inline CSS, and inline vanilla JavaScript; there is no build step, package manager, database, API, or application server required.
+CSM-Hub is the main corporate and platform website for the CSM digital ecosystem. It uses HTML, inline CSS, inline vanilla JavaScript, and a small PHP endpoint for authenticated SMTP contact delivery. There is no build step, database, or application framework.
 
 The current mission is to provide a central platform for learning, building, creating, evolving, and eventually connecting the CSM-Hub, CSM-Store, and CSM-Blog experiences.
 
@@ -12,6 +12,9 @@ Required:
 
 - A modern web browser with JavaScript enabled.
 - A local copy of this repository.
+- PHP 8.0 or newer for the contact endpoint.
+- Composer for installing PHPMailer.
+- An SMTP account and server configuration.
 
 Recommended for local development:
 
@@ -23,7 +26,7 @@ Not required:
 - Node.js or npm.
 - A database.
 - Environment variables.
-- A backend service.
+- A database or separate backend service.
 - A compilation or bundling tool.
 
 ## 3. Project Structure
@@ -31,6 +34,8 @@ Not required:
 ```text
 CSM-Hub/
 |-- index.html                 Main CSM-Hub homepage.
+|-- contact.php               Contact form mail endpoint.
+|-- composer.json              PHPMailer dependency declaration.
 |-- .htaccess                  Apache routing and 404 fallback configuration.
 |-- apache/
 |   `-- csm-hub.conf           Apache virtual directory configuration snippet.
@@ -57,14 +62,52 @@ The `backup/` directory is intentionally excluded from its own snapshot to preve
 1. Clone or download the repository.
 2. Open the `CSM-Hub` directory in Visual Studio Code or another editor.
 3. Confirm that `index.html`, `images/`, `store/`, and `blog/` exist.
-4. Start a local static server using one of the methods below.
+4. Install PHP dependencies and configure SMTP before testing the contact form.
 5. Open the homepage at the server URL.
 
 The project should be served from the `CSM-Hub` directory itself. Do not place it behind a URL prefix unless the image paths in `index.html` are updated accordingly.
 
 Apache must allow overrides for this directory so that `.htaccess` can apply. The relevant virtual host or directory configuration should allow `AllowOverride FileInfo Indexes` (or `AllowOverride All`). On Fedora installations using `AllowOverride None`, install the provided `apache/csm-hub.conf` snippet instead.
 
-## 5. Run with Python
+## 5. Configure SMTP and install dependencies
+
+From inside the `CSM-Hub` directory:
+
+```bash
+composer install --no-dev --optimize-autoloader
+```
+
+Configure these server environment variables. Do not commit SMTP passwords or tokens:
+
+```text
+CSM_SMTP_HOST=smtp.example.com
+CSM_SMTP_PORT=587
+CSM_SMTP_USER=your-mailbox@example.com
+CSM_SMTP_PASSWORD=your-smtp-password
+CSM_SMTP_ENCRYPTION=tls
+CSM_MAIL_FROM=your-mailbox@example.com
+CSM_MAIL_FROM_NAME=CSM-Hub Website
+```
+
+Use `tls` with port `587` for STARTTLS or `ssl` with port `465` for implicit TLS. The endpoint always delivers to `csmexperience@gmail.com` and uses the visitor's address only as `Reply-To`.
+
+For Gmail, `CSM_SMTP_USER` should be the Gmail address and `CSM_SMTP_PASSWORD` must be a Google App Password, not the normal account password. Enable 2-Step Verification on the Google account, create an App Password, and place that generated value in the hosting provider's environment-variable settings. Do not place it in `contact.php`, `.env.example`, `.htaccess`, or a committed file.
+
+The repository includes `.env.example` only as a naming template. The current `contact.php` reads the variables through `getenv()`; it does not automatically load a `.env` file. Configure the variables in the hosting panel, Apache/PHP-FPM service, or server process environment. For Apache, use protected server configuration such as `SetEnv` in the virtual-host configuration, then reload Apache; never put the secret in a public web directory.
+
+## 6. Run with PHP
+
+From inside the `CSM-Hub` directory:
+
+```bash
+php -S localhost:8000
+```
+
+Open `http://localhost:8000/index.html`.
+
+The contact form requires this PHP server or Apache/PHP. Python's static server can display the page but cannot execute `contact.php`.
+
+## 7. Run with Python
 
 From inside the `CSM-Hub` directory:
 
@@ -88,7 +131,7 @@ python3 -m http.server 8080
 
 Then open `http://localhost:8080/index.html`.
 
-## 6. Run with Visual Studio Code
+## 8. Run with Visual Studio Code
 
 1. Open the `CSM-Hub` directory.
 2. Install or enable a static-file server extension.
@@ -121,13 +164,14 @@ The final command should return HTTP `404` and the CSM-Hub maintenance page body
 
 The homepage can be opened directly as a local file in a browser. This is useful for a quick content check, but it is not the preferred development method. Some browser security rules and the current favicon/image URL can behave differently when using a `file://` URL.
 
-## 8. Application Routes
+## 9. Application Routes
 
 The platform navigation currently uses these relative destinations:
 
 - `./index.html` - always returns to the CSM-Hub homepage.
 - `store/` - current CSM-Store module route; Apache serves its `index.html`.
 - `blog/` - current CSM-Blog module route; Apache serves its `index.html`.
+- `contact.php` - accepts `POST` requests from the homepage form and sends them to `csmexperience@gmail.com` through authenticated PHPMailer SMTP.
 
 The Store and Blog pages are architectural placeholders only. They do not provide e-commerce or publishing functionality yet. Their next implementation phase should replace the placeholder while preserving these paths.
 
@@ -144,11 +188,11 @@ The Store and Blog pages are architectural placeholders only. They do not provid
 - About section and principles.
 - Ecosystem cards.
 - Projects placeholder.
-- Contact section.
+- Contact section with an expandable form posting to `contact.php`.
 - Footer.
 - Inline mobile navigation JavaScript.
 
-The page uses semantic elements including `header`, `nav`, `ul`, `li`, `a`, `main`, `section`, `article`, and `footer`.
+The page uses semantic elements including `header`, `nav`, `ul`, `li`, `a`, `main`, `section`, `article`, `form`, and `footer`.
 
 ## 10. Styling System
 
@@ -177,7 +221,7 @@ The homepage uses a small inline vanilla JavaScript controller:
 4. It uses `aria-controls="mainNavigation"` to identify the controlled region.
 5. A data attribute prevents duplicate initialization if legacy source content is encountered.
 
-There are no JavaScript dependencies or build artifacts.
+The contact form uses `fetch()` to post to `contact.php` and displays the JSON response inline. There are no JavaScript dependencies or build artifacts.
 
 ## 12. Assets and Paths
 
@@ -199,6 +243,10 @@ After installation, verify:
 - The Store and Blog links resolve to their placeholder pages.
 - Images load when the site is served from the expected path.
 - There is no horizontal overflow at desktop, tablet, or mobile widths.
+- The site is served by PHP or Apache with PHP enabled.
+- A valid contact form submission reaches `contact.php` and reports success.
+- SMTP credentials are supplied through server environment variables and are not committed.
+- The SMTP server delivers the message to `csmexperience@gmail.com`.
 
 ## 14. Backup Process
 

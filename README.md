@@ -24,13 +24,17 @@ Fedora Apache installations with `AllowOverride None` can use [apache/csm-hub.co
 
 ## Current Implementation
 
-This is a dependency-free static website built with:
+This is a dependency-free website with a small PHP mail endpoint, built with:
 
 - Semantic HTML.
 - Inline CSS using the existing CSM-Hub color variables.
 - Vanilla JavaScript for the accessible mobile navigation.
 - Local image assets in `images/`.
-- No package manager, database, API, build pipeline, or backend service.
+- `contact.php` for validated contact-form delivery to `csmexperience@gmail.com` through authenticated SMTP.
+- Composer-managed PHPMailer as the only backend dependency.
+- No database, API, or build pipeline.
+
+The contact form requires PHP-enabled hosting, `composer install`, and SMTP environment variables. Static-only hosting cannot process the form.
 
 The homepage preserves its internal About, Ecosystem, Projects, and Contact navigation beneath the primary platform navigation. The desktop platform navigation uses a balanced three-column layout, and the mobile menu remains keyboard-accessible with `aria-expanded`, `aria-controls`, and visible focus states.
 
